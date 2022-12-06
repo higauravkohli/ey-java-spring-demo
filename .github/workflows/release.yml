@@ -22,7 +22,6 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
-          bodyPath: 'README.md'
           draft: false
           prerelease: false
       - name: Upload Release Asset
@@ -32,7 +31,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./build/lib/springapp-0.0.1-SNAPSHOT-plain.jar
+          asset_path: build/lib/springapp-0.0.1-SNAPSHOT-plain.jar
           asset_name: springapp-0.0.1-SNAPSHOT-plain.jar
           asset_content_type: application/jar
       - name: Upload Release Asset
@@ -42,7 +41,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./build/lib/springapp-0.0.1-SNAPSHOT.jar
+          asset_path: build/lib/springapp-0.0.1-SNAPSHOT.jar
           asset_name: springapp-0.0.1-SNAPSHOT.jar
           asset_content_type: application/jar
         
